@@ -148,3 +148,10 @@ class subscriber_topic(base_ps):
         except Exception as e:
             print(e)
             self.start()
+            
+    def stop(self):
+        #  停止订阅消息,然后订阅线程退出
+        try:
+            self.channel.stop_consuming()
+        except Exception as e:
+            print(e)    
